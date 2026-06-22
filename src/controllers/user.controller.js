@@ -18,6 +18,9 @@ const registerUser =async (req, res)=>{
          delete user.password;
          res.status(201).json(user);
     }catch(error){
+        if(error.code === '23505'){
+        return res.status(400).json({error: 'Email already exists'});
+    }
         res.status(500).json({ error: 'Internal server error' });
     }
 }
