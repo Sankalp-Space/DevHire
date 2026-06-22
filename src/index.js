@@ -10,6 +10,7 @@ const jobRoutes = require('./routes/job.routes');
 const applicationRoutes = require('./routes/application.routes');
 const rateLimiter = require('express-rate-limit');
 const helmet= require('helmet');
+const redis = require('./config/redis');
 app.use(helmet());
 
 const limiter = rateLimiter({
